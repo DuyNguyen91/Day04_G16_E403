@@ -1,10 +1,8 @@
 # Day 04 Lab v2 Report — Research Agent
 
 > File này gồm 2 phần, deadline khác nhau:
-> - **PHẦN A — Debate Poster**: 1 trang để trình bày trong buổi debate (Team showdown). **Xong trước 16:30.** Team khác đọc 2 phút là hiểu nhóm bạn cải thiện gì, thêm tool gì, vì sao tin là đúng. Có thể làm thành poster HTML/SVG (`artifacts/poster.html` / `poster.svg`) để show cho team cùng zone.
-> - **PHẦN B — Chi tiết / Bằng chứng**: bảng đầy đủ (v0–v3, failure, chat). **Có thể hoàn thiện sau buổi debate để nộp bài.**
->
-> Cả hai phần phải dựa trên log thật (run JSON, version_log), không phải cảm tính.
+> - **PHẦN A — Giới thiệu agent**: ngắn gọn 1 trang để team khác hiểu nhanh agent có tool gì, làm được gì, thử bằng câu hỏi nào. **Xong trước 16:30** để làm tài liệu phụ trợ khi demo. Có thể làm thành poster HTML/SVG (`artifacts/poster.html` / `poster.svg`) để show cho team cùng zone.
+> - **PHẦN B — Chi tiết / Bằng chứng**: bảng đầy đủ (v0–v3, failure, eval, chat) dựa trên log thật. **Có thể hoàn thiện sau buổi debate để nộp bài.**
 
 ## Team
 
@@ -14,86 +12,31 @@
 
 ---
 
-# PHẦN A — Debate Poster
+# PHẦN A — Giới thiệu agent
 
-## A1. Một dòng tóm tắt
+## A1. Agent này làm được gì
 
-> 1 câu: nhóm đã làm gì để kéo điểm lên.
+> 1–2 câu mô tả agent dùng để làm gì (cho team khác hiểu nhanh).
 
-Ví dụ: "Thêm rule routing rõ ràng + map tên người → handle trong `tools.yaml`, đưa `case_accuracy` từ 0.65 → 0.90."
+Ví dụ: "Research agent: tìm tin theo từ khóa / theo tài khoản, đọc URL, tổng hợp thành digest, và gửi lên Telegram khi được xác nhận."
 
-## A2. Kết quả (baseline → final)
+## A2. Tool agent có
 
-| Metric | Baseline (v0) | Final (v?) | Δ |
-|---|---:|---:|---:|
-| case_accuracy | 0.65 |  |  |
-| tool_routing_accuracy |  |  |  |
-| argument_accuracy |  |  |  |
-| multiturn_accuracy |  |  |  |
+> Liệt kê các tool agent đang dùng (gồm tool mới nhóm tự thêm). Mỗi tool 1 dòng: tên + làm được gì.
 
-- Run file baseline:
-- Run file final:
-- Group eval run file / accuracy:
-
-## A3. Ba thay đổi quan trọng nhất
-
-> Mỗi dòng: *triệu chứng trong log* → *giả thuyết* → *sửa gì* → *kết quả*. Tối đa 3. (Bảng v0–v3 đầy đủ ở Phần B.)
-
-| # | Lỗi quan sát trong log | Sửa ở đâu (`prompt`/`tools.yaml`) | Kết quả (case nào pass thêm) |
-|---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-
-## A4. Tool mới nhóm tự thêm
-
-> Lab bắt buộc thêm ít nhất 1 tool mới. (Bonus khác — UI, telegram, arXiv — ở Phần B.)
-
-| Tên tool | Tool làm gì | Vì sao cần (lỗi/khoảng trống nào) | Args chính | Có confirmation? |
-|---|---|---|---|---|
-|  |  |  |  |  |
-
-- File tool: `tools/<tên>/tool.py` + `tools/<tên>/TOOL.md`
-- Đã đăng ký ở: `tools/__init__.py` ☐  `tools.yaml` ☐
-- (Nếu rename tool có sẵn) đã đồng bộ 4 nơi: ☐ tools.yaml ☐ __init__.py ☐ eval_base.json ☐ eval_research_extension.json
-
-## A5. Một bằng chứng before/after (để cãi)
-
-> Chọn 1 case mạnh nhất. Dán đoạn log thật, không mô tả cảm tính. (Bảng failure đầy đủ ở Phần B.)
-
-- Case ID:
-- Request:
-
-**Trước (v0):**
-```
-actual_tool_calls: ...
-observed_mismatch: ...
-```
-
-**Sau (final):**
-```
-actual_tool_calls: ...
-```
-
-## A6. Eval case nhóm tự viết — và vì sao nó đáng
-
-> Chọn 1–2 case nhóm tự hào nhất. Nó bắt được lỗi gì mà eval_base bỏ sót? (Danh sách đủ 10 case ở Phần B.)
-
-| Case ID | Bắt lỗi loại gì (`failure_type`) | Vì sao case này khó / đáng tranh luận |
+| Tên tool | Làm được gì | Tool mới nhóm thêm? |
 |---|---|---|
+| clarify | hỏi lại người dùng khi thiếu thông tin | không |
+|  |  |  |
 |  |  |  |
 
-## A7. Quan điểm mang ra debate
+## A3. Câu hỏi mẫu để thử
 
-> 1 câu khẳng định nhóm sẵn sàng bảo vệ trước team khác. Phải có thể bị phản biện.
+> 3–5 câu hỏi/yêu cầu mẫu để team khác tự thử agent ngay.
 
-Ví dụ: "Action tool nên LUÔN hỏi xác nhận trước khi gửi, kể cả khi user đã nói rõ — vì cost của gửi nhầm > cost của 1 câu hỏi."
-
-Khẳng định của nhóm:
-
-## A8. Câu hỏi mở cho các team khác
-
-> 1 câu hỏi nhóm chưa tự trả lời được — để mời tranh luận.
+1.
+2.
+3.
 
 ---
 

@@ -26,7 +26,7 @@ Nhiệm vụ bắt buộc:
 - Tự viết thêm 10 eval case vào `data/eval_group.json`, trong đó 5 single turn và 5 multi turn.
 - Nộp run JSON, transcript JSON, report.
 - Bắt buộc có UI chạy được bằng Streamlit hoặc Vercel.
-- Hoàn thành `artifacts/REPORT.md`: Phần A (debate poster 1 trang) xong **trước 16:30** để dùng trong Team showdown; Phần B (chi tiết) hoàn thiện sau để nộp bài.
+- Hoàn thành `artifacts/REPORT.md`: Phần A (giới thiệu agent: tool gì, làm được gì, câu hỏi mẫu) xong **trước 16:30** làm tài liệu phụ trợ khi demo; Phần B (chi tiết) hoàn thiện sau để nộp bài.
 
 Bonus:
 
@@ -244,12 +244,10 @@ Try at least 3 live turns, for example:
 
 Hoàn thành `artifacts/REPORT.md`. File này có 2 phần với deadline khác nhau:
 
-- **Phần A — Debate Poster** (1 trang) — **phải xong trước 16:30 để dùng trong Team showdown**. Mục tiêu: team khác đọc 2 phút là hiểu **nhóm bạn cải thiện gì, thêm tool mới như nào, vì sao tin là đúng**. Gồm: một dòng tóm tắt, bảng metric baseline → final, ba thay đổi quan trọng nhất, tool mới, một bằng chứng before/after dán từ log thật, một quan điểm nhóm sẵn sàng bảo vệ + một câu hỏi mở.
-- **Phần B — Chi tiết / Bằng chứng** — **có thể hoàn thiện sau Team showdown để nộp bài**. Bảng đầy đủ v0–v3, failure analysis, eval cases, live chat, reflection.
+- **Phần A — Giới thiệu agent** (ngắn gọn 1 trang) — **phải xong trước 16:30**, làm tài liệu phụ trợ để team khác hiểu nhanh khi demo. Chỉ cần: (1) agent làm được gì, (2) agent có những tool gì và mỗi tool làm được gì, (3) vài câu hỏi mẫu để team khác tự thử.
+- **Phần B — Chi tiết / Bằng chứng** — **có thể hoàn thiện sau Team showdown để nộp bài**. Bảng đầy đủ v0–v3, failure analysis, eval cases, live chat, reflection — dựa trên log thật (run JSON, version_log).
 
-Cả hai phần phải dựa trên log thật (run JSON, version_log), không phải cảm tính.
-
-**Format Phần A khi debate:** nộp tối thiểu bản markdown trong `REPORT.md`. Khuyến khích team biến Phần A thành **poster HTML/SVG 1 trang** để show trực tiếp cho các team cùng zone (ví dụ `artifacts/poster.html` hoặc `artifacts/poster.svg`) — cùng nội dung, trình bày dễ nhìn hơn. Poster HTML/SVG là tùy chọn, không thay thế nội dung markdown.
+**Format Phần A:** nộp tối thiểu bản markdown trong `REPORT.md`. Khuyến khích biến Phần A thành **poster HTML/SVG 1 trang** để show trực tiếp cho team cùng zone (ví dụ `artifacts/poster.html` hoặc `artifacts/poster.svg`) — cùng nội dung, dễ nhìn hơn. Poster HTML/SVG là tùy chọn, không thay thế bản markdown.
 
 ## Submit
 
@@ -273,5 +271,5 @@ Do not submit `.env` or API keys.
 - 15:00 - Run baseline + build UI
 - 15:30 - Improve prompt/tools for v1 + build at least 1 tool
 - 16:00 - Write team eval cases + improve v2
-- 16:30 - Team showdown (demo sản phẩm; REPORT.md Phần A / poster là tài liệu phụ trợ để team khác hiểu nhanh nhóm đã cải thiện gì, thêm tool gì)
+- 16:30 - Team showdown (demo sản phẩm; REPORT.md Phần A / poster là tài liệu phụ trợ để team khác hiểu nhanh agent có tool gì, làm được gì)
 - 17:30 - Improve v3 + hoàn thiện report Phần B
