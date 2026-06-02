@@ -255,13 +255,11 @@ Submit `starter_v0/` with:
 
 Do not submit `.env` or API keys.
 
-## Timeline 4h
+## Checkpoint 4h
 
-- 0:00-0:25 setup, keys, preflight.
-- 0:25-0:55 run baseline, inspect JSON.
-- 0:55-1:45 improve prompt/tools for v1-v2.
-- 1:45-2:15 write team eval cases.
-- 2:15-2:45 run v3 + group eval.
-- 2:45-3:20 chat live + transcript.
-- 3:20-3:50 report.
-- 3:50-4:00 package and final sanity check.
+- 14:30 - Run baseline + build UI
+- 15:00 - Improve prompt/tools for v1 + build at least 1 tool
+- 15:30 - Write team eval cases + improve v2
+- 16:00 - Improve for v3
+- 16:30 - Team showdown
+- 17:30 - Write report
