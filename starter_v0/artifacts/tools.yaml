@@ -7,7 +7,7 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Dùng khi câu hỏi thiếu thông tin cần thiết hoặc cần xác nhận trước khi thực hiện hành động ghi/đăng. Hãy hỏi một câu ngắn, rõ ràng. Dùng response_type='text' khi cần xin thiếu thông tin như handle hoặc URL; dùng 'yes_no' cho các hành động gửi/đăng/post/share để hỏi xác nhận trước khi thực hiện; dùng 'choice' chỉ khi có vài lựa chọn rõ ràng. Đặc biệt với câu như 'đăng bản tin này lên Telegram', không hỏi thêm nội dung nếu nội dung đã có sẵn — hãy dùng yes_no."
+    description: "Dùng khi câu hỏi thiếu thông tin cần thiết hoặc cần xác nhận trước khi thực hiện hành động ghi/đăng. Hãy hỏi một câu ngắn, rõ ràng. Dùng response_type='text' khi cần xin thiếu thông tin như handle hoặc URL; dùng 'yes_no' cho các hành động gửi/đăng/post/share để hỏi xác nhận trước khi thực hiện; dùng 'choice' chỉ khi có vài lựa chọn rõ ràng. Đặc biệt với câu như 'đăng bản tin này lên Telegram', không hỏi thêm nội dung nếu nội dung đã có sẵn — hãy dùng yes_no. Nếu người dùng nói 'bài này' hoặc 'bài viết này' mà chưa có URL, phải dùng clarify(response_type='text') và yêu cầu URL, không tự đoán."
     parameters:
       type: object
       properties:
@@ -36,7 +36,7 @@ tools:
       required: [query]
 
   - name: lookup
-    description: "Dùng cho tìm kiếm web/tin tức/thông tin trên internet. Khi người dùng hỏi về tin thời sự, hãy dùng topic='news' và chọn timeframe='day' cho 'hôm nay', 'week' cho 'tuần này'. Query nên là một chủ đề ngắn, không phải câu đầy đủ; ví dụ: 'AI', 'robotics', 'OpenAI'. Đối với tin tức chung, ưu tiên topic='news'."
+    description: "Dùng cho tìm kiếm web/tin tức/thông tin trên internet. Khi người dùng hỏi về tin thời sự, hãy dùng topic='news' và chọn timeframe='day' cho 'hôm nay', 'week' cho 'tuần này'. Query nên là một chủ đề ngắn, không phải câu đầy đủ; ví dụ: 'AI', 'robotics', 'OpenAI'. Đối với tin tức chung, ưu tiên topic='news'. Nếu người dùng explicitly đổi từ Twitter/X sang tìm trên web hoặc tin tức, ưu tiên lookup(topic='news') thay vì social_search."
     parameters:
       type: object
       properties:
