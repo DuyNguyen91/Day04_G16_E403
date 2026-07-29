@@ -1,0 +1,348 @@
+{
+  "transcript_id": "v3_openrouter_20260729T114533713501",
+  "version": "v3",
+  "artifact_version": "v3+pc54c7d3927e5+t0f0515b6d147",
+  "prompt_hash": "c54c7d3927e55b6b3c3a09bd653732bc71f6ed49dbd69ba013aee230a0bdb09c",
+  "tools_hash": "0f0515b6d1474e221b950f1df0f9e488f2455b56b6888eadeabb70a06b3af154",
+  "provider": "openrouter",
+  "model": "combo3",
+  "system_prompt": "C:\\Users\\DuyLeo\\Downloads\\Day04_G16_E403\\starter_v0\\artifacts\\system_prompt.md",
+  "tools": "C:\\Users\\DuyLeo\\Downloads\\Day04_G16_E403\\starter_v0\\artifacts\\tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T11:45:33",
+  "updated_at": "2026-07-29T11:48:14",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T11:46:22",
+      "user": "thời tiết hải dương hôm nay?",
+      "status": "answered",
+      "assistant_text": "## Thời tiết Hải Dương hôm nay\n\n- **Địa điểm:** Hải Dương\n- **Dự báo:** Stub forecast for Hải Dương\n- **Đơn vị:** Độ C\n\nHiện tại dữ liệu dự báo chi tiết chưa được cập nhật đầy đủ. Bạn có muốn mình kiểm tra lại thông tin thời tiết cụ thể hơn không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "weather_forecast",
+              "args": {
+                "location": "Hải Dương"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "weather_forecast",
+              "args": {
+                "location": "Hải Dương"
+              },
+              "result": {
+                "tool": "weather_forecast",
+                "location": "Hải Dương",
+                "forecast": "Stub forecast for Hải Dương",
+                "unit": "celsius"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "## Thời tiết Hải Dương hôm nay\n\n- **Địa điểm:** Hải Dương\n- **Dự báo:** Stub forecast for Hải Dương\n- **Đơn vị:** Độ C\n\nHiện tại dữ liệu dự báo chi tiết chưa được cập nhật đầy đủ. Bạn có muốn mình kiểm tra lại thông tin thời tiết cụ thể hơn không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "weather_forecast",
+          "args": {
+            "location": "Hải Dương"
+          },
+          "result": {
+            "tool": "weather_forecast",
+            "location": "Hải Dương",
+            "forecast": "Stub forecast for Hải Dương",
+            "unit": "celsius"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:46:44"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T11:47:00",
+      "user": "thời tiết hà nội hôm nay?",
+      "status": "answered",
+      "assistant_text": "## Thời tiết Hà Nội hôm nay\n\n- **Địa điểm:** Hà Nội\n- **Đơn vị:** Độ C\n- **Dự báo:** Stub forecast for Hà Nội\n\nHiện tại dữ liệu dự báo chi tiết (nhiệt độ cụ thể, độ ẩm, v.v.) chưa được cập nhật đầy đủ. Bạn có muốn mình kiểm tra lại thông tin thời tiết chi tiết hơn không?",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "weather_forecast",
+              "args": {
+                "location": "Hà Nội"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "weather_forecast",
+              "args": {
+                "location": "Hà Nội"
+              },
+              "result": {
+                "tool": "weather_forecast",
+                "location": "Hà Nội",
+                "forecast": "Stub forecast for Hà Nội",
+                "unit": "celsius"
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "## Thời tiết Hà Nội hôm nay\n\n- **Địa điểm:** Hà Nội\n- **Đơn vị:** Độ C\n- **Dự báo:** Stub forecast for Hà Nội\n\nHiện tại dữ liệu dự báo chi tiết (nhiệt độ cụ thể, độ ẩm, v.v.) chưa được cập nhật đầy đủ. Bạn có muốn mình kiểm tra lại thông tin thời tiết chi tiết hơn không?",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "weather_forecast",
+          "args": {
+            "location": "Hà Nội"
+          },
+          "result": {
+            "tool": "weather_forecast",
+            "location": "Hà Nội",
+            "forecast": "Stub forecast for Hà Nội",
+            "unit": "celsius"
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:47:10"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T11:47:52",
+      "user": "tìm link github đang trend top 1 hôm nay?",
+      "status": "answered",
+      "assistant_text": "TOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"fetch\",\n    \"args\": {\n      \"url\": \"https://github.com/trending?since=daily\"\n    }\n  }\n]",
+      "rounds": [
+        {
+          "round": 1,
+          "assistant_text": "",
+          "tool_calls": [
+            {
+              "name": "github_explorer",
+              "args": {
+                "query": "trending"
+              }
+            },
+            {
+              "name": "lookup",
+              "args": {
+                "query": "GitHub trending top 1 today",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "github_explorer",
+              "args": {
+                "query": "trending"
+              },
+              "result": {
+                "tool": "github_explorer",
+                "query": "trending",
+                "language": "",
+                "items": []
+              }
+            },
+            {
+              "tool": "lookup",
+              "args": {
+                "query": "GitHub trending top 1 today",
+                "topic": "news",
+                "timeframe": "day",
+                "max_results": 5
+              },
+              "result": {
+                "tool": "web_search",
+                "query": "GitHub trending top 1 today",
+                "topic": "news",
+                "timeframe": "day",
+                "items": [
+                  {
+                    "title": "'Certighost' Flaw Haunts Microsoft Active Directory Certificates - Dark Reading",
+                    "url": "https://www.darkreading.com/vulnerabilities-threats/certighost-flaw-microsoft-active-directory-certificates",
+                    "source": "darkreading.com",
+                    "summary": "Researchers released a proof-of-concept (PoC) exploit for a now-patched flaw in Microsoft's Active Directory Certificate Services (AD CS) that can allow a low-privileged domain user to impersonate a domain controller and fully compromise an AD environment. In its July raft of a record 622 Patch Tuesday updates, Microsoft patched a flaw tracked as CVE-2026-54121, which the researchers who discovered and exploited it — Aniq Fakhrul (@aniqfakhrul) and Muhammad Ali (@h0j3n) — called \"Certighost,\" according to a post by the researchers on GitHub. As the researchers described, the vulnerability affects the enterprise certificate authority's (CA) handling of an AD CS enrollment fallback mechanism known as a \"chase,\" which is a second directory lookup performed in some cross-domain controller enrollment scenarios. Because of the flaw, Fakhrul and Ali found that during the issuance of certificates — which bind a subject to a public key — the CA could be tricked into querying an attacker-controlled host for AD identity information by manipulating the cdc (Client DC) and rmd (Remote Domain) request attributes, they explained.",
+                    "score": 0.16514862
+                  },
+                  {
+                    "title": "Hugging Face Has a Deepfake Nudes Problem - WIRED",
+                    "url": "https://www.wired.com/story/hugging-face-has-a-nonconsensual-deepfakes-problem/",
+                    "source": "wired.com",
+                    "summary": "Researchers tested top image editing models on Hugging Face and found they could easily create explicit deepfakes—and 1,000 image editing prompts show how people use the software. The open-source AI platform Hugging Face—a repository of AI models and datasets, which has been valued in the billions—has a widespread problem with nonconsensual deepfakes, according to a new report published Tuesday by the European nonprofit AI Forensics. Researchers from the group say they tested nine of the top image editing Spaces on Hugging Face, which host models people can directly use on the site, and seven of these easily changed a clothed image of a woman into a topless one. In further testing, AI Forensics researchers created their own honey-pot-style image editing Spaces on Hugging Face—which were designed not to produce any images—and tracked more than 1,000 prompts and images they received over a week.",
+                    "score": 0.06775009
+                  },
+                  {
+                    "title": "Paypal stock rises as CEO keeps door open on potential deals - Yahoo Finance",
+                    "url": "https://finance.yahoo.com/markets/article/paypal-stock-rises-as-ceo-keeps-door-open-on-potential-deals-141554191.html",
+                    "source": "finance.yahoo.com",
+                    "summary": "1.   Breaking News • 2 hours ago Apple tops $5 trillion market cap intraday, only second company to hit the milestone. 2.   News • 2 hours ago The Nasdaq fell as a chip stock sell-off deepened, but the Dow rose. 4.   News • 17 hours ago Why Microsoft, Meta, and Amazon earnings could crush the S&P 500. 6.   News • 19 hours ago A chip stock sell-off dragged the S&P 500 and Nasdaq lower, offsetting oil declines. 9.   News • yesterday US stocks rose to start a busy week of earnings as oil prices fell. News • 2 days ago Wall Street sees Big Tech's spending as positive for semiconductor stocks. News • 2 days ago Big Tech earnings, a Fed decision, and worsening conditions in the Middle East are all front and center this week. News • 4 days ago Megacap tech stocks dragged the Dow, S&P 500, and Nasdaq lower in a bruising session on Wall Street.",
+                    "score": 0.063163914
+                  },
+                  {
+                    "title": "Ghost Credentials Expose Cloud Systems to Hidden Identity Risks - Dark Reading",
+                    "url": "https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
+                    "source": "darkreading.com",
+                    "summary": "Security researcher Aleksandr Krasnov reveals dormant non-human identities can create security blind spots and releases NHI Hound, an open source tool to sniff out trust paths. During the course of the investigation, Aleksandr Krasnov, a distinguished security architect at Ducker Tech Consulting, discovered a mesh of \"ghost credentials\" and non‑human identities — tokens, agents, and service accounts that lived outside traditional trust boundaries but were still able to move laterally through the environment and escalate privileges to access systems. Krasnov plans to outline a red-team methodology for turning a single leaked key into a full cloud compromise, or abusing chained trust relationships to pivot into identity providers such as Okta, as part an online session at the end of Black Hat USA 2026. Krasnov will then pivot to a blue‑team perspective on rebuilding a \"source of truth\" for non‑human trust, and plans to release NHI Hound, an open‑source tool he developed that ingests identity data from providers such as Okta, GitHub, and cloud IAM platforms.",
+                    "score": 0.05739294
+                  },
+                  {
+                    "title": "JFrog tries to spin OpenAI 0-day exploit of its app into a success story - Ars Technica",
+                    "url": "https://arstechnica.com/security/2026/07/jfrog-tries-to-spin-openai-0-day-exploit-of-its-app-into-a-success-story/",
+                    "source": "arstechnica.com",
+                    "summary": "10 days passed from OpenAI models exploiting JFrog Artifactory 0-day to release of a patch. Last week’s unprecedented security event in which two OpenAI security hacking models trespassed into the network of fellow AI company Hugging Face was enabled by exploiting one or more zero-day vulnerabilities in Artifactory, JFrog, the product’s developer, said Monday. In an incident mimicking a dystopian sci-fi novel, two OpenAI models broke out of the restricted environment meant to keep them from accessing the Internet during an internal test, the AI company revealed last week. The models went on to breach Hugging Face’s network and steal confidential information and credentials. The executive went on to say that the company learned of the zero-days from OpenAI. Left out of the post is that five days passed until OpenAI revealed its role in the breach Hugging Face disclosed and that at least another five days passed from the time OpenAI reported the zero-days and JFrog released patches for them.",
+                    "score": 0.050635003
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 2,
+          "assistant_text": "Let me check the GitHub trending page trực tiếp để có thông tin chính xác nhé!",
+          "tool_calls": [
+            {
+              "name": "fetch",
+              "args": {
+                "url": "https://github.com/trending"
+              }
+            }
+          ],
+          "tool_results": [
+            {
+              "tool": "fetch",
+              "args": {
+                "url": "https://github.com/trending"
+              },
+              "result": {
+                "tool": "read_url",
+                "url": "https://github.com/trending",
+                "items": [
+                  {
+                    "title": "Trending  repositories on GitHub today · GitHub",
+                    "url": "https://github.com/trending",
+                    "source": "github.com",
+                    "summary": "[Skip to content](https://github.com/trending#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/trending) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/trending) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/trending) to refresh your session.Dismiss alert\n\n{{ message }}\n\n# Trending\n\nSee what the GitHub community is most excited about today.\n\n\nSpoken Language:\n\n\nAny\n\nSelect a spoken language\n\n[Abkhazian](https://github.com/trending?spoken_language_code=ab) [Afar](https://github.com/trending?spoken_language_code=aa) [Afrikaans](https://github.com/trending?spoken_language_code=af) [Akan](https://github.com/trending?spoken_language_code=ak) [Albanian](https://github.com/trending?spoken_language_code=sq) [Amharic](https://github.com/trending?spoken_language_code=am) [Arabic](https://github.com/trending?spoken_language_code=ar) [Aragonese](https://github.com/trending?spoken_language_code=an) [Armenian](https://github.com/trending?spoken_language_code=hy) [Assamese](https://github.com/trending?spoken_language_code=as) [Avaric](https://github.com/trending?spoken_language_code=av) [Avestan](https://github.com/trending?spoken_language_code=ae) [Aymara](https://github.com/trending?spoken_language_code=ay) [Azerbaijani](https://github.com/trending?spoken_language_code=az) [Bambara](https://github.com/trending?spoken_language_code=bm) [Bashkir](https://github.com/trending?spoken_language_code=ba) [Basque](https://github.com/trending?spoken_language_code=eu) [Belarusian](https://github.com/trending?spoken_language_code=be) [Bengali](https://github.com/trending?spoken_language_code=bn) [Bihari languages](https://github.com/trending?spoken_language_code=bh) [Bislama](https://github.com/trending?spoken_language_code=bi) [Bosnian](https://github.com/trending?spoken_language_code=bs) [Breton](https://github.com/trending?spoken_language_code=br) [Bulgarian](https://github.com/trending?spoken_language_code=bg) [Burmese](https://github.com/trending?spoken_language_code=my) [Catalan, Valencian](https://github.com/trending?spoken_language_code=ca) [Chamorro](https://github.com/trending?spoken_language_code=ch) [Chechen](https://github.com/trending?spoken_language_code=ce) [Chichewa, Chewa, Nyanja](https://github.com/trending?spoken_language_code=ny) [Chinese](https://github.com/trending?spoken_language_code=zh) [Chuvash](https://github.com/trending?spoken_language_code=cv) [Cornish](https://github.com/trending?spoken_language_code=kw) [Corsican](https://github.com/trending?spoken_language_code=co) [Cree](https://github.com/trending?spoken_language_code=cr) [Croatian](https://github.com/trending?spoken_language_code=hr) [Czech](https://github.com/trending?spoken_language_code=cs) [Danish](https://github.com/trending?spoken_language_code=da) [Divehi, Dhivehi, Maldivian](https://github.com/trending?spoken_language_code=dv) [Dutch, Flemish](https://github.com/trending?spoken_language_code=nl) [Dzongkha](https://github.com/trending?spoken_language_code=dz) [English](https://github.com/trending?spoken_language_code=en) [Esperanto](https://github.com/trending?spoken_language_code=eo) [Estonian](https://github.com/trending?spoken_language_code=et) [Ewe](https://github.com/trending?spoken_language_code=ee) [Faroese](https://github.com/trending?spoken_language_code=fo) [Fijian](https://github.com/trending?spoken_language_code=fj) [Finnish](https://github.com/trending?spoken_language_code=fi) [French](https://github.com/trending?spoken_language_code=fr) [Fulah](https://github.com/trending?spoken_language_code=ff) [Galician](https://github.com/trending?spoken_language_code=gl) [Georgian](https://github.com/trending?spoken_language_code=ka) [German](https://github.com/trending?spoken_language_code=de) [Greek, Modern](https://github.com/trending?spoken_language_code=el) [Guarani](https://github.com/trending?spoken_language_cod"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "assistant_text": "TOOL_CALLS_JSON:\n[\n  {\n    \"name\": \"fetch\",\n    \"args\": {\n      \"url\": \"https://github.com/trending?since=daily\"\n    }\n  }\n]",
+          "tool_calls": [],
+          "tool_results": []
+        }
+      ],
+      "tool_events": [
+        {
+          "tool": "github_explorer",
+          "args": {
+            "query": "trending"
+          },
+          "result": {
+            "tool": "github_explorer",
+            "query": "trending",
+            "language": "",
+            "items": []
+          }
+        },
+        {
+          "tool": "lookup",
+          "args": {
+            "query": "GitHub trending top 1 today",
+            "topic": "news",
+            "timeframe": "day",
+            "max_results": 5
+          },
+          "result": {
+            "tool": "web_search",
+            "query": "GitHub trending top 1 today",
+            "topic": "news",
+            "timeframe": "day",
+            "items": [
+              {
+                "title": "'Certighost' Flaw Haunts Microsoft Active Directory Certificates - Dark Reading",
+                "url": "https://www.darkreading.com/vulnerabilities-threats/certighost-flaw-microsoft-active-directory-certificates",
+                "source": "darkreading.com",
+                "summary": "Researchers released a proof-of-concept (PoC) exploit for a now-patched flaw in Microsoft's Active Directory Certificate Services (AD CS) that can allow a low-privileged domain user to impersonate a domain controller and fully compromise an AD environment. In its July raft of a record 622 Patch Tuesday updates, Microsoft patched a flaw tracked as CVE-2026-54121, which the researchers who discovered and exploited it — Aniq Fakhrul (@aniqfakhrul) and Muhammad Ali (@h0j3n) — called \"Certighost,\" according to a post by the researchers on GitHub. As the researchers described, the vulnerability affects the enterprise certificate authority's (CA) handling of an AD CS enrollment fallback mechanism known as a \"chase,\" which is a second directory lookup performed in some cross-domain controller enrollment scenarios. Because of the flaw, Fakhrul and Ali found that during the issuance of certificates — which bind a subject to a public key — the CA could be tricked into querying an attacker-controlled host for AD identity information by manipulating the cdc (Client DC) and rmd (Remote Domain) request attributes, they explained.",
+                "score": 0.16514862
+              },
+              {
+                "title": "Hugging Face Has a Deepfake Nudes Problem - WIRED",
+                "url": "https://www.wired.com/story/hugging-face-has-a-nonconsensual-deepfakes-problem/",
+                "source": "wired.com",
+                "summary": "Researchers tested top image editing models on Hugging Face and found they could easily create explicit deepfakes—and 1,000 image editing prompts show how people use the software. The open-source AI platform Hugging Face—a repository of AI models and datasets, which has been valued in the billions—has a widespread problem with nonconsensual deepfakes, according to a new report published Tuesday by the European nonprofit AI Forensics. Researchers from the group say they tested nine of the top image editing Spaces on Hugging Face, which host models people can directly use on the site, and seven of these easily changed a clothed image of a woman into a topless one. In further testing, AI Forensics researchers created their own honey-pot-style image editing Spaces on Hugging Face—which were designed not to produce any images—and tracked more than 1,000 prompts and images they received over a week.",
+                "score": 0.06775009
+              },
+              {
+                "title": "Paypal stock rises as CEO keeps door open on potential deals - Yahoo Finance",
+                "url": "https://finance.yahoo.com/markets/article/paypal-stock-rises-as-ceo-keeps-door-open-on-potential-deals-141554191.html",
+                "source": "finance.yahoo.com",
+                "summary": "1.   Breaking News • 2 hours ago Apple tops $5 trillion market cap intraday, only second company to hit the milestone. 2.   News • 2 hours ago The Nasdaq fell as a chip stock sell-off deepened, but the Dow rose. 4.   News • 17 hours ago Why Microsoft, Meta, and Amazon earnings could crush the S&P 500. 6.   News • 19 hours ago A chip stock sell-off dragged the S&P 500 and Nasdaq lower, offsetting oil declines. 9.   News • yesterday US stocks rose to start a busy week of earnings as oil prices fell. News • 2 days ago Wall Street sees Big Tech's spending as positive for semiconductor stocks. News • 2 days ago Big Tech earnings, a Fed decision, and worsening conditions in the Middle East are all front and center this week. News • 4 days ago Megacap tech stocks dragged the Dow, S&P 500, and Nasdaq lower in a bruising session on Wall Street.",
+                "score": 0.063163914
+              },
+              {
+                "title": "Ghost Credentials Expose Cloud Systems to Hidden Identity Risks - Dark Reading",
+                "url": "https://www.darkreading.com/cloud-security/non-human-identity-sprawl-creates-a-new-cloud-attack-path",
+                "source": "darkreading.com",
+                "summary": "Security researcher Aleksandr Krasnov reveals dormant non-human identities can create security blind spots and releases NHI Hound, an open source tool to sniff out trust paths. During the course of the investigation, Aleksandr Krasnov, a distinguished security architect at Ducker Tech Consulting, discovered a mesh of \"ghost credentials\" and non‑human identities — tokens, agents, and service accounts that lived outside traditional trust boundaries but were still able to move laterally through the environment and escalate privileges to access systems. Krasnov plans to outline a red-team methodology for turning a single leaked key into a full cloud compromise, or abusing chained trust relationships to pivot into identity providers such as Okta, as part an online session at the end of Black Hat USA 2026. Krasnov will then pivot to a blue‑team perspective on rebuilding a \"source of truth\" for non‑human trust, and plans to release NHI Hound, an open‑source tool he developed that ingests identity data from providers such as Okta, GitHub, and cloud IAM platforms.",
+                "score": 0.05739294
+              },
+              {
+                "title": "JFrog tries to spin OpenAI 0-day exploit of its app into a success story - Ars Technica",
+                "url": "https://arstechnica.com/security/2026/07/jfrog-tries-to-spin-openai-0-day-exploit-of-its-app-into-a-success-story/",
+                "source": "arstechnica.com",
+                "summary": "10 days passed from OpenAI models exploiting JFrog Artifactory 0-day to release of a patch. Last week’s unprecedented security event in which two OpenAI security hacking models trespassed into the network of fellow AI company Hugging Face was enabled by exploiting one or more zero-day vulnerabilities in Artifactory, JFrog, the product’s developer, said Monday. In an incident mimicking a dystopian sci-fi novel, two OpenAI models broke out of the restricted environment meant to keep them from accessing the Internet during an internal test, the AI company revealed last week. The models went on to breach Hugging Face’s network and steal confidential information and credentials. The executive went on to say that the company learned of the zero-days from OpenAI. Left out of the post is that five days passed until OpenAI revealed its role in the breach Hugging Face disclosed and that at least another five days passed from the time OpenAI reported the zero-days and JFrog released patches for them.",
+                "score": 0.050635003
+              }
+            ]
+          }
+        },
+        {
+          "tool": "fetch",
+          "args": {
+            "url": "https://github.com/trending"
+          },
+          "result": {
+            "tool": "read_url",
+            "url": "https://github.com/trending",
+            "items": [
+              {
+                "title": "Trending  repositories on GitHub today · GitHub",
+                "url": "https://github.com/trending",
+                "source": "github.com",
+                "summary": "[Skip to content](https://github.com/trending#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/trending) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/trending) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/trending) to refresh your session.Dismiss alert\n\n{{ message }}\n\n# Trending\n\nSee what the GitHub community is most excited about today.\n\n\nSpoken Language:\n\n\nAny\n\nSelect a spoken language\n\n[Abkhazian](https://github.com/trending?spoken_language_code=ab) [Afar](https://github.com/trending?spoken_language_code=aa) [Afrikaans](https://github.com/trending?spoken_language_code=af) [Akan](https://github.com/trending?spoken_language_code=ak) [Albanian](https://github.com/trending?spoken_language_code=sq) [Amharic](https://github.com/trending?spoken_language_code=am) [Arabic](https://github.com/trending?spoken_language_code=ar) [Aragonese](https://github.com/trending?spoken_language_code=an) [Armenian](https://github.com/trending?spoken_language_code=hy) [Assamese](https://github.com/trending?spoken_language_code=as) [Avaric](https://github.com/trending?spoken_language_code=av) [Avestan](https://github.com/trending?spoken_language_code=ae) [Aymara](https://github.com/trending?spoken_language_code=ay) [Azerbaijani](https://github.com/trending?spoken_language_code=az) [Bambara](https://github.com/trending?spoken_language_code=bm) [Bashkir](https://github.com/trending?spoken_language_code=ba) [Basque](https://github.com/trending?spoken_language_code=eu) [Belarusian](https://github.com/trending?spoken_language_code=be) [Bengali](https://github.com/trending?spoken_language_code=bn) [Bihari languages](https://github.com/trending?spoken_language_code=bh) [Bislama](https://github.com/trending?spoken_language_code=bi) [Bosnian](https://github.com/trending?spoken_language_code=bs) [Breton](https://github.com/trending?spoken_language_code=br) [Bulgarian](https://github.com/trending?spoken_language_code=bg) [Burmese](https://github.com/trending?spoken_language_code=my) [Catalan, Valencian](https://github.com/trending?spoken_language_code=ca) [Chamorro](https://github.com/trending?spoken_language_code=ch) [Chechen](https://github.com/trending?spoken_language_code=ce) [Chichewa, Chewa, Nyanja](https://github.com/trending?spoken_language_code=ny) [Chinese](https://github.com/trending?spoken_language_code=zh) [Chuvash](https://github.com/trending?spoken_language_code=cv) [Cornish](https://github.com/trending?spoken_language_code=kw) [Corsican](https://github.com/trending?spoken_language_code=co) [Cree](https://github.com/trending?spoken_language_code=cr) [Croatian](https://github.com/trending?spoken_language_code=hr) [Czech](https://github.com/trending?spoken_language_code=cs) [Danish](https://github.com/trending?spoken_language_code=da) [Divehi, Dhivehi, Maldivian](https://github.com/trending?spoken_language_code=dv) [Dutch, Flemish](https://github.com/trending?spoken_language_code=nl) [Dzongkha](https://github.com/trending?spoken_language_code=dz) [English](https://github.com/trending?spoken_language_code=en) [Esperanto](https://github.com/trending?spoken_language_code=eo) [Estonian](https://github.com/trending?spoken_language_code=et) [Ewe](https://github.com/trending?spoken_language_code=ee) [Faroese](https://github.com/trending?spoken_language_code=fo) [Fijian](https://github.com/trending?spoken_language_code=fj) [Finnish](https://github.com/trending?spoken_language_code=fi) [French](https://github.com/trending?spoken_language_code=fr) [Fulah](https://github.com/trending?spoken_language_code=ff) [Galician](https://github.com/trending?spoken_language_code=gl) [Georgian](https://github.com/trending?spoken_language_code=ka) [German](https://github.com/trending?spoken_language_code=de) [Greek, Modern](https://github.com/trending?spoken_language_code=el) [Guarani](https://github.com/trending?spoken_language_cod"
+              }
+            ]
+          }
+        }
+      ],
+      "ended_at": "2026-07-29T11:48:14"
+    }
+  ]
+}
