@@ -116,11 +116,12 @@ tools:
       required: [url]
 
   - name: weather_forecast
-    description: "Lấy thông tin thời tiết hiện tại."
+    description: "Lấy thông tin thời tiết hiện tại hoặc thời tiết trong quá khứ."
     parameters:
       type: object
       properties:
         location: {type: string, default: "", description: "Tên địa điểm (ví dụ: Hanoi, Tokyo). Để trống để lấy thời tiết theo IP hiện tại."}
+        date: {type: string, default: "", description: "Ngày cần tra cứu theo định dạng YYYY-MM-DD. Bỏ trống nếu muốn xem thời tiết hiện tại."}
 
   - name: crypto_tracker
     description: "Tra cứu giá hiện tại của các đồng tiền điện tử phổ biến."
