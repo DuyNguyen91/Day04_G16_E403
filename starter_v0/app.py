@@ -40,6 +40,11 @@ async def api_chat(request: Request):
     
     # Reload prompt/tools on every request for hot-reloading in lab
     sys_prompt = system_prompt_path.read_text(encoding="utf-8")
+    
+    # Inject current datetime so the agent can resolve relative dates (e.g. 'hôm qua')
+    current_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    sys_prompt += f"\n\n[SYSTEM INFO]\nHôm nay là ngày: {current_time_str}"
+    
     t_decls = load_tool_declarations(tools_yaml_path)
     o_tools = to_openai_tools(t_decls)
     
