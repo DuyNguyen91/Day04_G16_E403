@@ -398,6 +398,9 @@ body {
 
 .msg-content {
     flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     font-size: 15px;
     color: var(--text-primary);
     padding-top: 6px;
