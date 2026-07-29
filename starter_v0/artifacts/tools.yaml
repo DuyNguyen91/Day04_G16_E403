@@ -7,7 +7,7 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Dùng khi câu hỏi thiếu thông tin cần thiết hoặc cần xác nhận trước khi thực hiện hành động ghi/đăng. Hãy hỏi một câu ngắn, rõ ràng. Dùng response_type='text' khi cần xin thiếu thông tin như handle hoặc URL; dùng 'yes_no' khi cần xác nhận trước khi gửi; dùng 'choice' chỉ khi có vài lựa chọn rõ ràng."
+    description: "Dùng khi câu hỏi thiếu thông tin cần thiết hoặc cần xác nhận trước khi thực hiện hành động ghi/đăng. Hãy hỏi một câu ngắn, rõ ràng. Dùng response_type='text' khi cần xin thiếu thông tin như handle hoặc URL; dùng 'yes_no' cho các hành động gửi/đăng/post/share để hỏi xác nhận trước khi thực hiện; dùng 'choice' chỉ khi có vài lựa chọn rõ ràng. Đặc biệt với câu như 'đăng bản tin này lên Telegram', không hỏi thêm nội dung nếu nội dung đã có sẵn — hãy dùng yes_no."
     parameters:
       type: object
       properties:
