@@ -438,6 +438,39 @@ body {
     color: #a5b4fc;
 }
 
+/* Markdown Elements Styling */
+.msg-content ul, .msg-content ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.msg-content li {
+    margin-bottom: 8px;
+}
+
+.msg-content h1, .msg-content h2, .msg-content h3, .msg-content h4 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.msg-content h1 { font-size: 1.5em; }
+.msg-content h2 { font-size: 1.3em; }
+.msg-content h3 { font-size: 1.1em; }
+
+.msg-content strong, .msg-content b {
+    font-weight: 600;
+    color: #fff;
+}
+
+.msg-content img {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    margin: 16px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 .msg-content code {
     font-family: var(--font-mono);
     font-size: 13px;
