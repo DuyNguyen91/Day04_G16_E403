@@ -17,6 +17,7 @@ from .policy.tool import search_company_policy
 from .social_search.tool import search_tweets
 from .send.tool import send_telegram
 from .lookup.tool import web_search
+from .rank.tool import rank_items
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -31,6 +32,7 @@ TOOL_FUNCTIONS = {
     "lookup": web_search,
     "fetch": read_url,
     "format": render_digest,
+    "rank": rank_items,
     "send": send_telegram,
     "policy": search_company_policy,
     "papers": arxiv_search,

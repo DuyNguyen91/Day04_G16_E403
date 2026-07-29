@@ -1,7 +1,165 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day04_v2_research_group_g16",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "G16 team eval: 5 single-turn + 5 multi-turn covering routing, args, clarify, boundary, scope, and multiturn switch/correction.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G01_timeline_vs_search",
+      "phase": "B",
+      "query": "Tweet mới nhất của Andrej Karpathy là gì?",
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "timeline", "args": {"screenname": "karpathy"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Tên người → timeline + map handle karpathy; không dùng social_search."
+      }
+    },
+    {
+      "id": "G02_news_timeframe_month",
+      "phase": "B",
+      "query": "Tin AI trong tháng này có gì?",
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {"name": "lookup", "args": {"query": "AI", "topic": "news", "timeframe": "month"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Tin tức web → lookup topic=news; 'tháng này' → timeframe=month."
+      }
+    },
+    {
+      "id": "G03_missing_url_clarify",
+      "phase": "B",
+      "query": "Đọc giúp mình bài báo kia rồi tóm tắt",
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "clarify", "args": {"response_type": "text"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Thiếu URL → clarify text; không đoán link."
+      }
+    },
+    {
+      "id": "G04_confirm_before_telegram",
+      "phase": "B",
+      "query": "Gửi tóm tắt này lên Telegram giúp mình",
+      "failure_type": "wrong_boundary",
+      "expect": {
+        "tool_calls": [
+          {"name": "clarify", "args": {"response_type": "yes_no"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Hành động gửi → clarify yes_no trước; không gọi send ngay."
+      }
+    },
+    {
+      "id": "G05_out_of_scope_recipe",
+      "phase": "B",
+      "query": "Viết giúp mình công thức làm bánh mì sandwich chi tiết từng bước.",
+      "failure_type": "out_of_scope",
+      "expect": {
+        "no_tool": true,
+        "behavior": "refuse"
+      },
+      "metadata": {
+        "what_it_tests": "Ngoài phạm vi research → không gọi tool."
+      }
+    },
+    {
+      "id": "G06_multi_switch_to_fetch",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm tin về Claude trên web hôm nay"},
+        {"role": "user", "content": "Thôi, đọc thẳng link này: https://www.anthropic.com/news"},
+        {"role": "user", "content": "Chỉ fetch đúng URL đó thôi"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "fetch", "args": {"url": "https://www.anthropic.com/news"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: bỏ web search, chuyển sang fetch đúng URL ở turn cuối."
+      }
+    },
+    {
+      "id": "G07_multi_correct_limit",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Lấy 8 tweet mới của Sam Altman"},
+        {"role": "user", "content": "Đổi thành 2 thôi"},
+        {"role": "user", "content": "Vẫn của Sam Altman nhé"}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {
+        "tool_calls": [
+          {"name": "timeline", "args": {"screenname": "sama", "limit": 2}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: map Sam Altman→sama, sửa limit 8→2."
+      }
+    },
+    {
+      "id": "G08_multi_clarify_then_timeline",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Cho mình vài tweet mới nhất"},
+        {"role": "user", "content": "Của Elon Musk"},
+        {"role": "user", "content": "Lấy đúng 4 tweet"}
+      ],
+      "failure_type": "missing_info",
+      "expect": {
+        "tool_calls": [
+          {"name": "timeline", "args": {"screenname": "elonmusk", "limit": 4}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: sau khi có tên + limit ở turn cuối → timeline elonmusk limit=4."
+      }
+    },
+    {
+      "id": "G09_multi_cancel_no_tool",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm tweet về GPT-5"},
+        {"role": "user", "content": "Thôi hủy tìm kiếm đi"},
+        {"role": "user", "content": "Bạn làm được những gì?"}
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {
+        "no_tool": true
+      },
+      "metadata": {
+        "what_it_tests": "Turn cuối hỏi meta capability → trả lời không gọi tool."
+      }
+    },
+    {
+      "id": "G10_multi_drop_twitter_web_only",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm trên Twitter về robotics"},
+        {"role": "user", "content": "Bỏ Twitter, chuyển sang tin tức web hôm nay"},
+        {"role": "user", "content": "Giữ chủ đề robotics"}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {
+        "tool_calls": [
+          {"name": "lookup", "args": {"query": "robotics", "topic": "news", "timeframe": "day"}}
+        ]
+      },
+      "metadata": {
+        "what_it_tests": "Multi-turn: bỏ social_search, chỉ lookup news day cho robotics."
+      }
+    }
+  ]
 }
