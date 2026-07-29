@@ -1,7 +1,108 @@
 {
-  "dataset_id": "day04_v2_research_group",
+  "dataset_id": "day04_v2_research_group_g16",
   "dataset_role": "group",
-  "description": "Template để NHÓM tự viết đúng 10 case: 5 single-turn dùng query và 5 multi-turn dùng turns. Mỗi case cần: id, phase='B', failure_type (thuộc allowed_failure_types), expect (tool_calls[...] hoặc no_tool=true), và metadata.what_it_tests. File để trống có chủ đích vì mỗi nhóm phải tự thiết kế các case này.",
+  "description": "10 team-authored boundary, routing, argument, and carry-over cases: exactly 5 single-turn and 5 multi-turn.",
   "allowed_failure_types": ["wrong_tool", "wrong_arg_value", "wrong_boundary", "unnecessary_tool", "out_of_scope", "missing_info"],
-  "cases": []
+  "cases": [
+    {
+      "id": "G16_S01_topic_not_account",
+      "phase": "B",
+      "query": "Tìm 4 bài đăng mới nhất bàn về Anthropic trên mạng xã hội.",
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "social_search", "args": {"query": "Anthropic", "search_type": "Latest", "limit": 4}}]},
+      "metadata": {"what_it_tests": "Phân biệt bài viết về một chủ đề với timeline của tài khoản."}
+    },
+    {
+      "id": "G16_S02_month_news",
+      "phase": "B",
+      "query": "Tìm tin về AI agents trong tháng này, tối đa 3 kết quả.",
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "lookup", "args": {"query": "AI agents", "topic": "news", "timeframe": "month", "max_results": 3}}]},
+      "metadata": {"what_it_tests": "Trích subject, news topic, month timeframe và result limit."}
+    },
+    {
+      "id": "G16_S03_missing_article_url",
+      "phase": "B",
+      "query": "Đọc và nêu ba ý chính của đường link mình vừa nhắc tới.",
+      "failure_type": "missing_info",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "text"}}]},
+      "metadata": {"what_it_tests": "Không bịa URL khi reference không có trong hội thoại."}
+    },
+    {
+      "id": "G16_S04_publish_boundary",
+      "phase": "B",
+      "query": "Đăng lên Telegram ngay giúp mình.",
+      "failure_type": "wrong_boundary",
+      "expect": {"tool_calls": [{"name": "clarify", "args": {"response_type": "yes_no"}}]},
+      "metadata": {"what_it_tests": "Confirmation boundary phải ưu tiên trước hành động publish."}
+    },
+    {
+      "id": "G16_S05_general_writing",
+      "phase": "B",
+      "query": "Viết cho mình một bài thơ lục bát về mùa hè.",
+      "failure_type": "out_of_scope",
+      "expect": {"no_tool": true},
+      "metadata": {"what_it_tests": "Yêu cầu sáng tác ngoài scope không được kích hoạt research tool."}
+    },
+    {
+      "id": "G16_M01_correct_subject",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm tin AI trong tuần này."},
+        {"role": "user", "content": "Đổi chủ đề thành quantum computing."},
+        {"role": "user", "content": "Giữ nguyên khoảng thời gian và chỉ tìm chủ đề mới."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "lookup", "args": {"query": "quantum computing", "topic": "news", "timeframe": "week"}}]},
+      "metadata": {"what_it_tests": "Correction subject overrides old value while timeframe carries over."}
+    },
+    {
+      "id": "G16_M02_url_override",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Đọc https://example.com/old"},
+        {"role": "user", "content": "Khoan, dùng https://example.com/new thay thế."},
+        {"role": "user", "content": "Tóm tắt đúng link mới."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "fetch", "args": {"url": "https://example.com/new"}}]},
+      "metadata": {"what_it_tests": "URL correction ở lượt sau phải thắng URL cũ."}
+    },
+    {
+      "id": "G16_M03_cancel_research",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm tin robotics hôm nay."},
+        {"role": "user", "content": "Thôi hủy yêu cầu tìm kiếm đó."},
+        {"role": "user", "content": "Chỉ mô tả ngắn bạn có thể làm gì."}
+      ],
+      "failure_type": "unnecessary_tool",
+      "expect": {"no_tool": true},
+      "metadata": {"what_it_tests": "Latest meta request cancels earlier research intent."}
+    },
+    {
+      "id": "G16_M04_account_and_limit",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Lấy tweet mới nhất của Sam Altman."},
+        {"role": "user", "content": "Đổi sang Andrej Karpathy."},
+        {"role": "user", "content": "Lấy đúng 7 bài nhé."}
+      ],
+      "failure_type": "wrong_arg_value",
+      "expect": {"tool_calls": [{"name": "timeline", "args": {"screenname": "karpathy", "limit": 7}}]},
+      "metadata": {"what_it_tests": "Carry corrected account and latest explicit limit across turns."}
+    },
+    {
+      "id": "G16_M05_switch_to_social",
+      "phase": "B",
+      "turns": [
+        {"role": "user", "content": "Tìm trên web tin OpenAI tháng này."},
+        {"role": "user", "content": "Không dùng web nữa, chuyển sang mạng xã hội."},
+        {"role": "user", "content": "Tìm 6 bài top về OpenAI."}
+      ],
+      "failure_type": "wrong_tool",
+      "expect": {"tool_calls": [{"name": "social_search", "args": {"query": "OpenAI", "search_type": "Top", "limit": 6}}]},
+      "metadata": {"what_it_tests": "Explicit source switch removes old lookup intent and routes social search."}
+    }
+  ]
 }

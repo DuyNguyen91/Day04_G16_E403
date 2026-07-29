@@ -9,17 +9,17 @@
 tools:
   # ---------------- Core tools ----------------
   - name: clarify
-    description: "Gửi một câu hỏi cho người dùng."
+    description: "Pause and ask the user for genuinely missing information or confirmation. Use response_type=text for a missing account/URL. For every send/post/publish request, use response_type=yes_no before any action, even when content is also missing."
     parameters:
       type: object
       properties:
         question: {type: string, default: "", description: "Câu hỏi"}
-        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "Kiểu trả lời"}
+        response_type: {type: string, enum: [text, yes_no, choice], default: "text", description: "text for missing data; yes_no for confirmation before external side effects"}
         options: {type: array, default: [], items: {type: string}, description: "Các lựa chọn"}
       required: [question]
 
   - name: timeline
-    description: "Lấy các bài đăng gần đây."
+    description: "Get recent posts authored by one known account. Use for posts OF a person/account, not posts ABOUT a topic. screenname is the handle without @; preserve the requested limit."
     parameters:
       type: object
       properties:
@@ -28,7 +28,7 @@ tools:
       required: [screenname]
 
   - name: social_search
-    description: "Tìm trên mạng xã hội."
+    description: "Search social posts ABOUT a topic across accounts. Keep query to the concise subject phrase only. Use Top for popular/top/best posts and Latest otherwise."
     parameters:
       type: object
       properties:
@@ -38,7 +38,7 @@ tools:
       required: [query]
 
   - name: lookup
-    description: "Tra cứu thông tin trên internet."
+    description: "Search the public web. Use topic=news for news/current-event requests. Keep query to the concise subject only (for example AI or robotics), without adding words such as news/tin tức. today means day; this week means week."
     parameters:
       type: object
       properties:
@@ -49,7 +49,7 @@ tools:
       required: [query]
 
   - name: fetch
-    description: "Lấy nội dung từ một địa chỉ."
+    description: "Read the exact URL supplied by the user. Never invent a URL and do not use web search when an explicit URL is already available."
     parameters:
       type: object
       properties:
@@ -57,7 +57,7 @@ tools:
       required: [url]
 
   - name: format
-    description: "Trình bày dữ liệu đã có thành văn bản."
+    description: "Format research items that are already available. This tool does not discover or fetch information; never call it when items are missing."
     parameters:
       type: object
       properties:
@@ -77,9 +77,26 @@ tools:
         headline: {type: string, default: "", description: "Tiêu đề"}
       required: [items, template]
 
+  - name: source_audit
+    description: "Audit research items already collected for citation completeness and distinct source domains. Use only when the user asks to check sources/citations/coverage; it does not search, fetch, or format."
+    parameters:
+      type: object
+      properties:
+        items:
+          type: array
+          description: "Existing research items to audit"
+          items:
+            type: object
+            properties:
+              title: {type: string}
+              url: {type: string}
+              summary: {type: string}
+        min_sources: {type: integer, default: 2, minimum: 1, description: "Minimum distinct source domains required"}
+      required: [items]
+
   # ---------------- Bonus tools ----------------
   - name: send
-    description: "Gửi một đoạn văn bản đi."
+    description: "Send exact text to Telegram, an external side effect. Never call unless the user has explicitly confirmed in the conversation and exact text is available; otherwise use clarify with response_type=yes_no."
     parameters:
       type: object
       properties:

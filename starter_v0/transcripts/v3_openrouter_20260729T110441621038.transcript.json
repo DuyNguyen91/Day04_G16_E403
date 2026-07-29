@@ -1,0 +1,50 @@
+{
+  "transcript_id": "v3_openrouter_20260729T110441621038",
+  "version": "v3",
+  "artifact_version": "v3+pe2d16ad844e4+t10d635a6e009",
+  "prompt_hash": "e2d16ad844e4e141fab3e36f4851e1caa254f25c254bc06876bb4cb71ef0dbdf",
+  "tools_hash": "10d635a6e009e2e9b1b3fb216433e6ecdb82f85efc835a4267b3901531d62f43",
+  "provider": "openrouter",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "system_prompt": "/home/photanh/UET/Day04_G16_E403/starter_v0/artifacts/system_prompt.md",
+  "tools": "/home/photanh/UET/Day04_G16_E403/starter_v0/artifacts/tools.yaml",
+  "history_window": 5,
+  "max_tool_rounds": 4,
+  "created_at": "2026-07-29T11:04:41",
+  "updated_at": "2026-07-29T11:04:49",
+  "turns": [
+    {
+      "turn_index": 1,
+      "started_at": "2026-07-29T11:04:41",
+      "user": "Tin AI hôm nay có gì nổi bật?",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1785369600000'}, 'limit_source': 'openrouter_free_tier_daily', 'remedy_hint': 'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.', 'provider_name': None, 'previous_errors': [{'code': 429, 'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day'}]}}, 'user_id': 'user_3H9xP76EG7FizH3WWsXUa0tYzA4'}",
+      "ended_at": "2026-07-29T11:04:44"
+    },
+    {
+      "turn_index": 2,
+      "started_at": "2026-07-29T11:04:44",
+      "user": "Tóm tắt 5 tweet mới nhất giúp mình",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1785369600000'}, 'limit_source': 'openrouter_free_tier_daily', 'remedy_hint': 'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.', 'provider_name': None, 'previous_errors': [{'code': 429, 'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day'}]}}, 'user_id': 'user_3H9xP76EG7FizH3WWsXUa0tYzA4'}",
+      "ended_at": "2026-07-29T11:04:47"
+    },
+    {
+      "turn_index": 3,
+      "started_at": "2026-07-29T11:04:47",
+      "user": "Đăng bản tin này lên Telegram giúp mình",
+      "status": "provider_error",
+      "assistant_text": null,
+      "rounds": [],
+      "tool_events": [],
+      "error": "RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1785369600000'}, 'limit_source': 'openrouter_free_tier_daily', 'remedy_hint': 'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.', 'provider_name': None, 'previous_errors': [{'code': 429, 'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day'}]}}, 'user_id': 'user_3H9xP76EG7FizH3WWsXUa0tYzA4'}",
+      "ended_at": "2026-07-29T11:04:49"
+    }
+  ]
+}
