@@ -114,3 +114,43 @@ tools:
         max_pages: {type: integer, default: 5, description: "Số trang nội dung muốn đọc."}
         max_chars: {type: integer, default: 8000, description: "Số ký tự tối đa trả về."}
       required: [arxiv_url]
+
+  - name: youtube_summarizer
+    description: "Dùng khi người dùng muốn tóm tắt nội dung một video YouTube từ URL cụ thể. Truyền đúng URL video."
+    parameters:
+      type: object
+      properties:
+        url: {type: string, default: "", description: "URL video YouTube cần tóm tắt."}
+      required: [url]
+
+  - name: weather_forecast
+    description: "Dùng khi người dùng hỏi về thời tiết ở một địa điểm cụ thể. Truyền tên thành phố hoặc địa điểm phù hợp."
+    parameters:
+      type: object
+      properties:
+        location: {type: string, default: "", description: "Tên thành phố hoặc địa điểm cần xem thời tiết."}
+      required: [location]
+
+  - name: crypto_tracker
+    description: "Dùng khi người dùng muốn tra cứu giá đồng coin/ticker như ETH, BTC. Truyền mã symbol chính xác."
+    parameters:
+      type: object
+      properties:
+        symbol: {type: string, default: "", description: "Mã giao dịch tiền điện tử, ví dụ ETH, BTC."}
+      required: [symbol]
+
+  - name: github_explorer
+    description: "Dùng khi người dùng muốn tìm kiếm repository hoặc project trên GitHub theo từ khóa và ngôn ngữ."
+    parameters:
+      type: object
+      properties:
+        query: {type: string, default: "", description: "Từ khóa tìm kiếm trên GitHub."}
+        language: {type: string, default: "", description: "Ngôn ngữ lập trình, ví dụ Python, JavaScript."}
+      required: [query]
+
+  - name: image_generator
+    description: "Dùng khi người dùng muốn tạo hình ảnh từ mô tả văn bản."
+    parameters:
+      type: object
+      properties:
+        prompt: {type: string, default: "", description: "Mô tả hình ảnh cần sinh."}

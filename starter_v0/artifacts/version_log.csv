@@ -79,3 +79,13 @@ v3_B_base_openrouter_20260729T112819185449,v3,v3+pc54c7d3927e5+t03bc2f3c7f0a,bas
 v3_B_base_openrouter_20260729T112819185449,v3,v3+pc54c7d3927e5+t03bc2f3c7f0a,base,M04_clarify_then_url,True,missing_info,,fetch,fetch,True,True,True,
 v3_B_base_openrouter_20260729T112819185449,v3,v3+pc54c7d3927e5+t03bc2f3c7f0a,base,M05_correction_limit,True,wrong_arg_value,,timeline,timeline,True,True,True,
 v3_B_base_openrouter_20260729T112819185449,v3,v3+pc54c7d3927e5+t03bc2f3c7f0a,base,M06_switch_tool,True,wrong_tool,,lookup,lookup,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,T01_youtube_summarizer_single,False,wrong_tool,,youtube_summarizer,youtube_summarizer,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,T02_weather_forecast_single,False,wrong_arg_value,,weather_forecast,weather_forecast,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,T03_crypto_tracker_single,False,wrong_arg_value,,crypto_tracker,crypto_tracker,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,T04_github_explorer_single,False,wrong_tool,,github_explorer,github_explorer,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,T05_image_generator_single,False,wrong_tool,,image_generator,image_generator,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,M07_youtube_missing_url,True,missing_info,,clarify,clarify,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,M08_youtube_provide_url,True,wrong_tool,,youtube_summarizer,youtube_summarizer,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,M09_weather_follow_up,True,wrong_arg_value,,weather_forecast,weather_forecast,True,True,True,
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,M10_crypto_to_telegram,True,wrong_boundary,missing_tool_call,clarify,,False,False,False,missing tool call clarify
+v3_B_group_openrouter_20260729T113912210798,v3,v3+pc54c7d3927e5+t0f0515b6d147,group,M11_switch_tool_github_to_news,True,wrong_tool,,lookup,lookup,True,True,True,

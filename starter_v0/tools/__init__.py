@@ -17,6 +17,11 @@ from .policy.tool import search_company_policy
 from .social_search.tool import search_tweets
 from .send.tool import send_telegram
 from .lookup.tool import web_search
+from .youtube_summarizer.tool import youtube_summarizer
+from .weather_forecast.tool import weather_forecast
+from .crypto_tracker.tool import crypto_tracker
+from .github_explorer.tool import github_explorer
+from .image_generator.tool import image_generator
 
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
@@ -35,6 +40,11 @@ TOOL_FUNCTIONS = {
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "youtube_summarizer": youtube_summarizer,
+    "weather_forecast": weather_forecast,
+    "crypto_tracker": crypto_tracker,
+    "github_explorer": github_explorer,
+    "image_generator": image_generator,
 }
 
 
