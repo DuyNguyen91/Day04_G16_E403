@@ -74,7 +74,8 @@ async def api_chat(request: Request):
             "tool_events": []
         }
         
-    art_ver = build_artifact_version("openrouter")
+    art_ver_obj = build_artifact_version("v3", system_prompt_path, tools_yaml_path)
+    art_ver = art_ver_obj.artifact_version
     timestamp = datetime.now().strftime("%Y%m%dT%H%M%S%f")
     transcript_path = ROOT / "transcripts" / f"{art_ver.split('+')[0]}_openrouter_{timestamp}.transcript.json"
     
