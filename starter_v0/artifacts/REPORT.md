@@ -6,9 +6,15 @@
 
 ## Team
 
-- Team:
-- Members:
-- Provider/model:
+- Team: G16 (E403)
+- Members: 
+  - Vũ Việt Anh (2A202601107)
+  - Kiều Thế Hiệp (2A202601435)
+  - Phó Viết Tiến Anh (2A202601341)
+  - Trần Bảo Ninh (2A202601595)
+  - Phan Trọng Tiến (2A202601095)
+  - Nguyễn Văn Duy (2A202601749)
+- Provider/model: OpenRouter (openai/gpt-4o-mini)
 
 ---
 
@@ -18,13 +24,11 @@
 
 > 1–2 câu mô tả agent dùng để làm gì.
 
-Ví dụ: "Research agent: tìm tin theo từ khóa / theo tài khoản, đọc URL và tổng hợp thành digest."
+Ví dụ: "Research Agent chuẩn Enterprise: Tìm kiếm tin tức tức thời trên Web và Twitter, tổng hợp thông tin, tóm tắt video Youtube, tra cứu giá Crypto/Thời tiết/Github trending, và trình bày bằng Markdown chuyên nghiệp."
 
 **Link dùng thử (truy cập được trong showdown):**
 
-> Dán public URL nếu người khác cần mở từ máy riêng; localhost cũng được nếu demo trực tiếp trên máy trình chiếu. Streamlit được khuyến nghị, nhưng nhóm có thể dùng bất kỳ framework nào.
->
-> URL:
+> URL: **http://127.0.0.1:8000** (Sẽ cung cấp Cloudflare Tunnel URL khi bắt đầu Showdown)
 
 ## A2. Tool agent có
 
@@ -33,16 +37,25 @@ Ví dụ: "Research agent: tìm tin theo từ khóa / theo tài khoản, đọc 
 | Tên tool | Làm được gì | Tool mới nhóm thêm? |
 |---|---|---|
 | clarify | hỏi lại người dùng khi thiếu thông tin | không |
-|  |  |  |
-|  |  |  |
+| timeline | lấy các bài đăng gần đây của một tài khoản Twitter | không |
+| social_search | tìm bài đăng trên mạng xã hội theo từ khóa | không |
+| lookup | tra cứu thông tin hoặc tin tức trên internet | không |
+| fetch | đọc và lấy nội dung text từ một URL cụ thể | không |
+| format | trình bày dữ liệu đã thu thập thành markdown report | không |
+| send | gửi nội dung đến một hệ thống bên ngoài | không |
+| youtube_summarizer | Tóm tắt nội dung video Youtube từ URL | **Có (Bonus)** |
+| weather_forecast | Lấy thông tin thời tiết tại một địa điểm | **Có (Bonus)** |
+| crypto_tracker | Tra cứu giá tiền điện tử (Bitcoin, ETH...) | **Có (Bonus)** |
+| github_explorer | Lấy danh sách repository đang trending trên Github | **Có (Bonus)** |
 
 ## A3. Câu hỏi mẫu để thử
 
 > 3–5 câu hỏi/yêu cầu mẫu để team khác tự thử agent ngay.
 
-1.
-2.
-3.
+1. "Tìm tin tức mới nhất về OpenAI hôm nay." (Sử dụng `lookup` với topic news)
+2. "Lấy 5 tweet gần nhất của Elon Musk." (Sử dụng `timeline`)
+3. "Tóm tắt video Youtube này giúp tôi: [URL]" (Sử dụng `youtube_summarizer` - Tool mới)
+4. "Giá Bitcoin hiện tại là bao nhiêu và thời tiết ở Tokyo đang như thế nào?" (Parallel tools: `crypto_tracker` + `weather_forecast`)
 
 ## A4. Kịch bản demo đã rehearse
 
@@ -50,7 +63,9 @@ Ví dụ: "Research agent: tìm tin theo từ khóa / theo tài khoản, đọc 
 
 | Scenario | Tool trace cần thấy | Câu chuyện cải thiện version | Fallback run/transcript |
 |---|---|---|---|
-|  |  |  |  |
+| Mơ hồ / Thiếu thông tin | `clarify` | Ở `v0`, agent tự đoán mò tên (Sam Altman). Lên `v1`, agent biết dùng `clarify` để hỏi lại user. | `transcripts/scenario_missing_info.json` |
+| Yêu cầu đa luồng (Parallel) | `lookup` + `timeline` đồng thời | Ở `v0`, agent chỉ gọi 1 tool rồi dừng. Lên `v1`, agent có thể gọi song song nhiều tools để lấy thông tin toàn diện. | `transcripts/scenario_parallel.json` |
+| Sử dụng công cụ Bonus | `youtube_summarizer` | Giới thiệu năng lực mới (không có trong đề bài) do nhóm tự code thêm để lấy điểm tuyệt đối. | `transcripts/scenario_bonus.json` |
 
 ---
 

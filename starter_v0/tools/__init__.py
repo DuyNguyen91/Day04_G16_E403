@@ -18,6 +18,13 @@ from .social_search.tool import search_tweets
 from .send.tool import send_telegram
 from .lookup.tool import web_search
 
+# Bonus Tools
+from .youtube_summarizer.tool import get_youtube_transcript
+from .weather_forecast.tool import get_weather
+from .crypto_tracker.tool import get_crypto_price
+from .github_explorer.tool import search_github
+from .image_generator.tool import generate_image
+
 
 # NOTE (starter_v0): tool names here are intentionally vague. These keys are the
 # names the model sees AND the names data/eval_base.json + data/eval_research_extension.json
@@ -35,6 +42,11 @@ TOOL_FUNCTIONS = {
     "policy": search_company_policy,
     "papers": arxiv_search,
     "paper_text": get_arxiv_paper_text,
+    "youtube_summarizer": get_youtube_transcript,
+    "weather_forecast": get_weather,
+    "crypto_tracker": get_crypto_price,
+    "github_explorer": search_github,
+    "image_generator": generate_image,
 }
 
 
